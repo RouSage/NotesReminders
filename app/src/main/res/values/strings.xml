@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NotesReminders</string>
+    <string name="application_name"><![CDATA[Notes & Reminders]]></string>
 </resources>

@@ -24,11 +24,12 @@ public class Note {
     @NonNull
     private String createdAt;
 
-    public Note(int id, @NonNull String heading, String text) {
+    public Note(int id, @NonNull String heading, String text, @NonNull String createdAt) {
         this.id = id;
         this.heading = heading;
         this.text = text;
-        this.createdAt = Calendar.getInstance().getTime().toString();
+//        this.createdAt = Calendar.getInstance().getTime().toString();
+        this.createdAt = createdAt;
     }
 
     public int getId() {
