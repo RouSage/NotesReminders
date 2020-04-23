@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">NotesReminders</string>
     <string name="application_name"><![CDATA[Notes & Reminders]]></string>
+    <string name="fabTvAddNote">Add Note</string>
+    <string name="title_activity_add_note">Add Note</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="labelHeading">Heading</string>
+    <string name="labelText">Note Text</string>
+    <string name="btnAddNote">Confirm</string>
+    <string name="btnCancel">Cancel</string>
 </resources>

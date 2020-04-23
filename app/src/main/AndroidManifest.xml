@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".activities.AddNote.AddNoteActivity"></activity>
+        <activity
+            android:name=".ui.login.AddNoteActivity"
+            android:label="@string/title_activity_add_note" />
         <activity android:name=".activities.Main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
