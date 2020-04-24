@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.notesreminders.NotesRemindersApp;
@@ -16,7 +17,7 @@ import com.notesreminders.activities.Main.adapters.NotesListViewAdapter;
 import com.notesreminders.data.AppDatabase;
 import com.notesreminders.data.Entities.Note;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,28 +29,29 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fabAddNote;
     LinearLayout layoutFabAddNote;
 
+    ListView listMain;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        db = ((NotesRemindersApp)getApplication()).db;
-
         bindViews();
-
-        ArrayList<Note> notes = new ArrayList<Note>();
-        notes.add(new Note(1, "Heading 1", "Some note Text", "02.02.2020"));
-        notes.add(new Note(2, "Heading 2", "Some note Text", "02.03.2020"));
-        notes.add(new Note(3, "Longer Heading 3", "Some note Text", "03.03.2020"));
-        ListView listMain = findViewById(R.id.list_main);
-        listMain.setAdapter(new NotesListViewAdapter(this, notes));
-
         closeFabSubMenu();
+
+        db = ((NotesRemindersApp)getApplication()).db;
+        db.noteDao().getAll().observe(this, new Observer<List<Note>>() {
+            @Override
+            public void onChanged(List<Note> notes) {
+                listMain.setAdapter(new NotesListViewAdapter(MainActivity.this, notes));
+            }
+        });
     }
 
     private void bindViews() {
-        fab = findViewById(R.id.fab);
+        listMain = findViewById(R.id.list_main);
 
+        fab = findViewById(R.id.fab);
         layoutFabAddNote = findViewById(R.id.layoutFabAddNote);
         fabAddNote = findViewById(R.id.fabAddNote);
         fabAddNote.setOnClickListener(new View.OnClickListener() {

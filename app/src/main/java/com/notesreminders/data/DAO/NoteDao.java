@@ -1,5 +1,6 @@
 package com.notesreminders.data.DAO;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -13,10 +14,10 @@ import java.util.List;
 @Dao
 public interface NoteDao {
     @Query("SELECT * FROM note")
-    List<Note> getAll();
+    LiveData<List<Note>> getAll();
 
     @Insert
-    long insertNote(Note note);
+    void insertNote(Note note);
 
     @Update
     void updateNote(Note note);

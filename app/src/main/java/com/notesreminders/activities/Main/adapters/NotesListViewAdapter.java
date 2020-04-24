@@ -13,10 +13,10 @@ import androidx.annotation.Nullable;
 import com.notesreminders.R;
 import com.notesreminders.data.Entities.Note;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class NotesListViewAdapter extends ArrayAdapter<Note> {
-    public NotesListViewAdapter(Context context, ArrayList<Note> notes) {
+    public NotesListViewAdapter(Context context, List<Note> notes) {
         super(context, 0, notes);
     }
 
@@ -34,8 +34,8 @@ public class NotesListViewAdapter extends ArrayAdapter<Note> {
         TextView tvHeading = convertView.findViewById(R.id.tvHeading);
         TextView tvText = convertView.findViewById(R.id.tvText);
 
-        tvHeading.setText(note.getHeading());
-        tvText.setText(note.getText());
+        tvHeading.setText(note.heading);
+        tvText.setText(note.text);
 
         return convertView;
     }
