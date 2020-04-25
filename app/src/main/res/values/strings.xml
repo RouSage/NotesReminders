@@ -15,4 +15,7 @@
     <string name="labelText">Note Text</string>
     <string name="btnAddNote">Confirm</string>
     <string name="btnCancel">Cancel</string>
+    <string name="btnEditNote">Confirm</string>
+    <string name="actionEditNote">Edit Note</string>
+    <string name="actionDeleteNote">Delete Note</string>
 </resources>

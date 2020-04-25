@@ -3,6 +3,7 @@ package com.notesreminders.data.Entities;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "note")
@@ -21,6 +22,10 @@ public class Note {
     @ColumnInfo(name = "created_at")
     @NonNull
     public String createdAt;
+
+    @Ignore
+    public Note() {
+    }
 
     public Note(@NonNull String heading, String text, @NonNull String createdAt) {
         this.heading = heading;

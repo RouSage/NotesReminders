@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     boolean fabExpanded = false;
     FloatingActionButton fab;
-
     FloatingActionButton fabAddNote;
     LinearLayout layoutFabAddNote;
 
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         bindViews();
         closeFabSubMenu();
 
-        db = ((NotesRemindersApp)getApplication()).db;
+        db = ((NotesRemindersApp) getApplication()).db;
         db.noteDao().getAll().observe(this, new Observer<List<Note>>() {
             @Override
             public void onChanged(List<Note> notes) {
