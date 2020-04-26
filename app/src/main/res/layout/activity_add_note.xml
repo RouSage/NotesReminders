@@ -9,6 +9,7 @@
 
     <TextView
         android:id="@+id/labelHeading"
+        style="@style/AppTheme.FormLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:labelFor="@+id/editHeading"
@@ -18,11 +19,13 @@
         android:id="@+id/editHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/AppTheme.FormControl"
         android:layout_marginBottom="10dp"
         android:inputType="text" />
 
     <TextView
         android:id="@+id/labelText"
+        style="@style/AppTheme.FormLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:labelFor="@+id/editNoteText"

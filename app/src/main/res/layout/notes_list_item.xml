@@ -22,15 +22,20 @@
 
     <TextView
         android:id="@+id/tvHeading"
+        style="@style/AppTheme.TextHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/ivIcon" />
 
     <TextView
         android:id="@+id/tvText"
+        style="@style/AppTheme.TextSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvHeading"
-        android:layout_toEndOf="@+id/ivIcon" />
+        android:layout_toEndOf="@+id/ivIcon"
+        android:ellipsize="end"
+        android:maxLength="40"
+        android:maxLines="1" />
 
 </RelativeLayout>
