@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            app:navigationIcon="@drawable/toolbar_ic_home_normal"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <TextView
@@ -30,8 +31,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
         android:orientation="vertical"
-        android:paddingHorizontal="10dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <TextView

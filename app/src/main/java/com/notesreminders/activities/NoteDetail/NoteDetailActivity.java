@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,8 @@ import com.notesreminders.activities.Main.MainActivity;
 import com.notesreminders.activities.dialogs.DeleteNoteDialogFragment;
 import com.notesreminders.data.AppDatabase;
 import com.notesreminders.data.Entities.Note;
+import com.notesreminders.notifications.NotificationHelper;
+import com.notesreminders.utils.Constants;
 
 public class NoteDetailActivity extends AppCompatActivity implements DeleteNoteDialogFragment.DeleteNoteDialogListener {
 
@@ -88,6 +91,13 @@ public class NoteDetailActivity extends AppCompatActivity implements DeleteNoteD
                 }
             }
         });
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NoteDetailActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -105,6 +115,10 @@ public class NoteDetailActivity extends AppCompatActivity implements DeleteNoteD
         @Override
         protected Void doInBackground(Note... notes) {
             db.noteDao().deleteNote(notes[0]);
+
+            if(notes[0].type == Constants.NOTE_TYPE_NOTIFICATION) {
+                NotificationHelper.cancelAlarm(getApplicationContext(), notes[0].id);
+            }
 
             return null;
         }

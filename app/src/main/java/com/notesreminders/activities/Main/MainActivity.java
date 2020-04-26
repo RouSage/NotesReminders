@@ -1,6 +1,10 @@
 package com.notesreminders.activities.Main;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -16,6 +20,8 @@ import com.notesreminders.activities.AddNote.AddNoteActivity;
 import com.notesreminders.activities.Main.adapters.NotesListViewAdapter;
 import com.notesreminders.data.AppDatabase;
 import com.notesreminders.data.Entities.Note;
+import com.notesreminders.notifications.NotificationReceiver;
+import com.notesreminders.utils.Constants;
 
 import java.util.List;
 

@@ -23,14 +23,23 @@ public class Note {
     @NonNull
     public String createdAt;
 
+    @ColumnInfo(name = "type")
+    public int type;
+
+    @ColumnInfo(name = "notify_at")
+    public String notifyAt;
+
     @Ignore
     public Note() {
     }
 
-    public Note(@NonNull String heading, String text, @NonNull String createdAt) {
+    public Note(@NonNull String heading, String text, @NonNull String createdAt, int type, String notifyAt) {
         this.heading = heading;
         this.text = text;
 //        this.createdAt = Calendar.getInstance().getTime().toString();
         this.createdAt = createdAt;
+        this.type = type;
+        this.notifyAt = notifyAt;
     }
 }
+

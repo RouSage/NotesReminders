@@ -20,7 +20,7 @@ public interface NoteDao {
     LiveData<Note> getById(int noteId);
 
     @Insert
-    void insertNote(Note note);
+    long insertNote(Note note);
 
     @Update
     void updateNote(Note note);
