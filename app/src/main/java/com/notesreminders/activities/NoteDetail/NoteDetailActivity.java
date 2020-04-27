@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import com.notesreminders.data.AppDatabase;
 import com.notesreminders.data.Entities.Note;
 import com.notesreminders.notifications.NotificationHelper;
 import com.notesreminders.utils.Constants;
+import com.notesreminders.utils.Utils;
 
 public class NoteDetailActivity extends AppCompatActivity implements DeleteNoteDialogFragment.DeleteNoteDialogListener {
 
@@ -32,6 +34,9 @@ public class NoteDetailActivity extends AppCompatActivity implements DeleteNoteD
     TextView tvNoteId;
     TextView tvCreatedAt;
     TextView tvText;
+    ImageView ivIcon;
+    TextView tvDate;
+    TextView tvTime;
 
     Toolbar toolbar;
 
@@ -61,6 +66,16 @@ public class NoteDetailActivity extends AppCompatActivity implements DeleteNoteD
                 tvNoteId.setText(String.valueOf(note.id));
                 tvCreatedAt.setText(note.createdAt);
                 tvText.setText(note.text);
+                ivIcon.setImageResource(R.drawable.list_ic_note_normal);
+
+                if(note.type == Constants.NOTE_TYPE_NOTIFICATION){
+                    String datetime = Utils.parseDateTimeToLocal(note.notifyAt);
+                    tvDate.setText(datetime.split(" ")[0]);
+                    tvDate.setVisibility(View.VISIBLE);
+                    tvTime.setText(datetime.split(" ")[1]);
+                    tvTime.setVisibility(View.VISIBLE);
+                    ivIcon.setImageResource(R.drawable.list_ic_notification_normal);
+                }
             }
         }
     };
@@ -70,6 +85,9 @@ public class NoteDetailActivity extends AppCompatActivity implements DeleteNoteD
         tvNoteId = findViewById(R.id.tvNoteId);
         tvCreatedAt = findViewById(R.id.tvCreatedAt);
         tvText = findViewById(R.id.tvText);
+        ivIcon = findViewById(R.id.ivIcon);
+        tvDate = findViewById(R.id.tvDate);
+        tvTime = findViewById(R.id.tvTime);
 
         toolbar = findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.note_detail_menu);
